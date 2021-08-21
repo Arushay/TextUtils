@@ -30,23 +30,29 @@ export default function TextForm(props) {
     const [text, setText] = useState("");
     return (
         <>
-            <div className="container my-3" style={{ color: props.mode === "dark" ? "white" : "black" }}>
+            <div className="container my-3" style={{ color: props.mode === "dark" ? "white" : "black" },
+                { color: props.greenMode === "#27ae60" ? "white" : "black" }} >
                 <div className="mb-3">
+
                     <h2>{props.heading}</h2>
-                    <textarea className="form-control" value={text} style={{ backgroundColor: props.mode === "dark" ? "#2d3436" : "white", color: props.mode === "dark" ? "white" : "black" }} onChange={handleOnChange} id="myBox" rows="8"></textarea>
+
+                    <textarea className="form-control" value={text} style={{ backgroundColor: props.mode === "dark" ? "#2d3436" : "white", color: props.mode === "dark" ? "white" : "black" },
+                        { backgroundColor: props.greenMode === "#27ae60" ? "#2ecc71" : "white", color: props.greenMode === "white" ? "black" : "white" }} onChange={handleOnChange} id="myBox" rows="8"></textarea>
                 </div>
-                <button className="btn btn-primary mx-1" onClick={handleUpClick} >Uppercase</button>
-                <button className="btn btn-primary mx-1" onClick={handleLoClick} >Lowercase</button>
-                <button className="btn btn-primary mx-1" onClick={clearClick} >Clear</button>
-                <button className="btn btn-primary mx-1" onClick={capClick} >Cap</button>
+                  
+                <button style={{ backgroundColor: props.greenMode === "#27ae60" ? "#2ecc71" : "primary", color: props.greenMode === "#27ae60" ? "white" : "white" }}  className="btn btn-primary mx-1" onClick={handleUpClick} >Uppercase</button>
+                <button style={{ backgroundColor: props.greenMode === "#27ae60" ? "#2ecc71" : "primary", color: props.greenMode === "#27ae60" ? "white" : "white" }}  className="btn btn-primary mx-1" onClick={handleLoClick} >Lowercase</button>
+                <button style={{ backgroundColor: props.greenMode === "#27ae60" ? "#2ecc71" : "primary", color: props.greenMode === "#27ae60" ? "white" : "white" }}  className="btn btn-primary mx-1" onClick={clearClick} >Clear</button>
+                <button  style={{ backgroundColor: props.greenMode === "#27ae60" ? "#2ecc71" : "primary", color: props.greenMode === "#27ae60" ? "white" : "white" }} className="btn btn-primary mx-1" onClick={capClick} >Cap</button>
 
             </div>
-            <div className="container" style={{ color: props.mode === "dark" ? "white" : "black" }}>
+            <div className="container" style={{ color: props.mode === "dark" ? "white" : "black" }, { color: props.greenMode === "#27ae60" ? "white" : "black" }}>
+               
                 <h2> Text Summary</h2>
                 <p>{text.split(" ").length} words and {text.length} characters</p>
                 <p>{0.008 * text.split(" ").length} Minutes read</p>
                 <h3>Preview</h3>
-                <p>{text.length>0? text : "Type something in the box to analyze"}</p>
+                <p>{text.length > 0 ? text : "Type something in the box to analyze"}</p>
             </div>
         </>
     )

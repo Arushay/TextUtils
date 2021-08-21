@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+#greenMode{
+  background-color: #2ecc71;
+  border-color: #365e46;
+}
+#darkMode{
+  background-color: gray;
+  border-color: rgb(85, 85, 85);
+}

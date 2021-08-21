@@ -1,14 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+// import { Link } from 'react-router-dom';
+ 
 
 
 export default function Navbar(props) {
 
 
   return (
-    <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
+    <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}, navbar-${props.greenMode} bg-${props.greenMode}`}>
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">{props.title}</a>
+        <a className="navbar-brand" href="#">{props.title}</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -17,13 +19,17 @@ export default function Navbar(props) {
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="/">Home</a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="About/">{props.about}</a>
-            </li>
+            {/* <li className="nav-item">
+              <a className="nav-link" to="/about">{props.about}</a>
+            </li> */}
           </ul>
 
           <div className={`form-check form-switch text-${props.mode === "light" ? "dark": "light"}`}>
-            <input className="form-check-input" onClick={props.switchMode} type="checkbox" id="modeSwitch"/>
+            <input className="form-check-input" onClick={props.switchMode} type="checkbox" id="darkMode"/>
+            </div>
+            {/* for green mode */}
+            <div className={`form-check form-switch text-${props.greenMode === "light" ? "#27ae60": "light"}`}>
+            <input id="greenMode" className="form-check-input" onClick={props.toggleMode} type="checkbox"/>
             </div>
           </div>
         </div>
