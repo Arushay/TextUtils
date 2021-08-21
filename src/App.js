@@ -1,6 +1,6 @@
 
 import './App.css';
-import About from './components/About';
+// import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import { useState } from 'react';
@@ -15,7 +15,6 @@ import Alert from './components/Alert';
 
 function App() {
   const [mode, setMode] = useState("light");
-  const [greenMode, setGreenMode] = useState("light");
 
   const [alert, setAlert] = useState(null);
 
@@ -46,14 +45,14 @@ function App() {
   return (
     <>
       {/* <Router> */}
-        <Navbar title="TextUtils" about="About Us" mode={mode} switchMode={switchMode} toggleMode={toggleMode} />
+        <Navbar title="TextUtils" about="About Us" mode={mode} switchMode={switchMode}  />
         <Alert alert={alert} />
         {/* <Switch> */}
           {/* <Route exact path="/about"> */}
             {/* <About /> */}
           {/* </Route> */}
            {/* <Route exact path="/"> */}
-            <TextForm heading="Enter the text here" mode={mode} toggleMode={toggleMode} greenMode={greenMode} />
+            <TextForm heading="Enter the text here" mode={mode} />
           {/* </Route>
         </Switch> */}
       {/*  </Router> */}

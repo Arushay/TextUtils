@@ -8,7 +8,7 @@ export default function Navbar(props) {
 
 
   return (
-    <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}, navbar-${props.greenMode} bg-${props.greenMode}`}>
+    <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
       <div className="container-fluid">
         <a className="navbar-brand" href="#">{props.title}</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,10 +26,6 @@ export default function Navbar(props) {
 
           <div className={`form-check form-switch text-${props.mode === "light" ? "dark": "light"}`}>
             <input className="form-check-input" onClick={props.switchMode} type="checkbox" id="darkMode"/>
-            </div>
-            {/* for green mode */}
-            <div className={`form-check form-switch text-${props.greenMode === "light" ? "#27ae60": "light"}`}>
-            <input id="greenMode" className="form-check-input" onClick={props.toggleMode} type="checkbox"/>
             </div>
           </div>
         </div>
