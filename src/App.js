@@ -52,7 +52,7 @@ function App() {
             {/* <About /> */}
           {/* </Route> */}
            {/* <Route exact path="/"> */}
-            <TextForm heading="Enter the text here" mode={mode} />
+            <TextForm heading="TextUtils - word counter" mode={mode} />
           {/* </Route>
         </Switch> */}
       {/*  </Router> */}

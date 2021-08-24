@@ -42,25 +42,25 @@ export default function TextForm(props) {
         <>
             <div className="container my-3" style={{ color: props.mode === "dark" ? "white" : "black" }} >
                 <div className="mb-3">
-                    <h2>{props.heading}</h2>
+                    <h2 className="mb-4">{props.heading}</h2>
                     <textarea className="form-control" value={text} style={{ backgroundColor: props.mode === "dark" ? "#2d3436" : "white", color: props.mode === "dark" ? "white" : "black" }} onChange={handleOnChange} id="myBox" rows="8"></textarea>
                 </div>
-                <button className="btn btn-primary mx-1" onClick={handleUpClick} >Uppercase</button>
-                <button className="btn btn-primary mx-1" onClick={handleLoClick} >Lowercase</button>
-                <button className="btn btn-primary mx-1" onClick={clearClick} >Clear</button>
-                <button className="btn btn-primary mx-1" onClick={capClick} >Cap</button>
-                <button className="btn btn-primary mx-1" onClick={handleCopy} >Copy</button>
-                <button className="btn btn-primary mx-1" onClick={removeExtraSpace} >Remove extra spaces</button>
+                <button className="btn btn-primary mx-1 my-1" onClick={handleUpClick} >Uppercase</button>
+                <button className="btn btn-primary mx-1 my-1" onClick={handleLoClick} >Lowercase</button>
+                <button className="btn btn-primary mx-1 my-1" onClick={clearClick} >Clear</button>
+                <button className="btn btn-primary mx-1 my-1" onClick={capClick} >Cap</button>
+                <button className="btn btn-primary mx-1 my-1" onClick={handleCopy} >Copy</button>
+                <button className="btn btn-primary mx-1 my-1" onClick={removeExtraSpace} >Remove extra spaces</button>
                 
 
             </div>
             <div className="container" style={{ color: props.mode === "dark" ? "white" : "black" }}>
 
                 <h2> Text Summary</h2>
-                <p>{text.split(" ").length} words and {text.length} characters</p>
-                <p>{0.008 * text.split(" ").length} Minutes read</p>
+                <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
+                <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes read</p>
                 <h3>Preview</h3>
-                <p>{text.length > 0 ? text : "Type something in the box to analyze"}</p>
+                <p>{text.length > 0 ? text : "Nothing to preview"}</p>
             </div>
         </>
     )
