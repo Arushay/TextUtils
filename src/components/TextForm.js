@@ -2,31 +2,23 @@ import React, { useState } from 'react'
 
 export default function TextForm(props) {
     const handleUpClick = () => {
-        // console.log("uppercase click");
         let newText = text.toUpperCase();
         setText(newText);
     }
     const handleLoClick = () => {
-        // console.log("lowercase click");
         let newText = text.toLowerCase();
         setText(newText);
     }
     const clearClick = () => {
-        // console.log("clear click");
         let newText = "";
         setText(newText);
     }
     const capClick = () => {
-        // console.log("Capitalize letter");
         let newText = text.charAt(0).toUpperCase() + text.slice(1);
         setText(newText);
     }
     const handleCopy = () => {
-        console.log("copy text");
-        let text = document.getElementById("myBox");
-        text.select();
-        text.setSelectionRange(0, 9999);
-        navigator.clipboard.writeText(text.value);
+        navigator.clipboard.writeText(text);
     }
     const removeExtraSpace = ()=>{
         let newText = text.split(/[ ]+/);
@@ -57,7 +49,7 @@ export default function TextForm(props) {
             <div className="container" style={{ color: props.mode === "dark" ? "white" : "black" }}>
 
                 <h2> Text Summary</h2>
-                <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
+                <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
                 <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes read</p>
                 <h3>Preview</h3>
                 <p>{text.length > 0 ? text : "Nothing to preview"}</p>
